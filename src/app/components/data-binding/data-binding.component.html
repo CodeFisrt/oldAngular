@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col-3">
+        <label for="">Name</label>
+        <input type="text" [(ngModel)]="studentObj.name" class="form-control">
+    </div>
+    <div class="col-3">
+        <label for="">City</label>
+        <input type="text"  [(ngModel)]="studentObj.city" class="form-control">
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <label for="">Address</label>
+        <textarea  [(ngModel)]="studentObj.address" class="form-control"></textarea>
+    </div> 
+</div>
+<div class="row">
+    <div class="col-3">
+        <label (change)="showAlertMessage()">Click me </label>
+    </div>
+    <div class="col-3">
+        <select (change)="showAlertMessage()">
+            <option value="">Select Country</option>
+            <option value="USa">USa</option>
+            <option value="India">India</option>
+        </select>
+    </div>
+    <div class="col-3">
+        <input type="text" [(ngModel)]="courseName" (ngModelChange)="showAlertMessage()" class="form-control">
+    </div>
+</div>
+<p>{{studentObj.name}} -- {{studentObj.city}} - {{studentObj.address}}</p>
+<div class="row">
+    <div class="col-3 p-2 ">
+        <button class="btn btn-success" (click)="showAlert('Welcome Batch 2')">Show Welcome Text</button>
+    </div>
+    <div class="col-3 p-2 ">
+        <button class="btn btn-primary" (click)="showAlert('Angular 18')">Show Course Name</button>
+    </div>
+    <div class="col-2">
+        <input type="text"  [value]="courseName" placeholder="Enter Name">
+    </div>
+    <div class="col-2">
+        <input type="text" [(ngModel)]="courseName"> 
+    </div>
+    <div class="col-2"> 
+        {{courseName}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <h1>One Way Data Binding</h1>
+        <div class="row">
+            <div class="col-4">
+                From .ts to .html => interpolation , property binding
+                <br>
+                firstName =>  {{firstName}}
+                <br>
+                <label id="myLabel">{{productPrice}}</label>
+                <p>{{currentDate}}</p>
+                <input type="text" [value]="currentDate" placeholder="" />
+            </div>
+            <div class="col-4">
+                From .html to .ts
+            </div> 
+        </div>
+    </div>
+    <div class="col-6">
+        <h1>Two Way Data Binding</h1>
+        <div class="row">
+            <div class="col-12">
+                using ng Model
+            </div>
+              
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div [class]="className">
+        <input [type]="inputType" name="" id="">
+        <textarea name=""   rows="{{noOfRow}}"></textarea>
+    </div>
+</div>
+
+
