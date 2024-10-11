@@ -19,11 +19,11 @@
         <label (change)="showAlertMessage()">Click me </label>
     </div>
     <div class="col-3">
-        <select (change)="showAlertMessage()">
+        <select  [(ngModel)]="selectedCountry" (change)="showAlertMessage()">
             <option value="">Select Country</option>
             <option value="USa">USa</option>
             <option value="India">India</option>
-        </select>
+        </select>- {{selectedCountry}}
     </div>
     <div class="col-3">
         <input type="text" [(ngModel)]="courseName" (ngModelChange)="showAlertMessage()" class="form-control">

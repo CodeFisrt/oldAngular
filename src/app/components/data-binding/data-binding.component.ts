@@ -14,6 +14,7 @@ export class DataBindingComponent {
   className: string = "col-4 bg-danger";
   noOfRow: number = 3;
   courseName: string = 'Angular';
+  selectedCountry: string = '';
  
   studentObj: any = {
     name: '',

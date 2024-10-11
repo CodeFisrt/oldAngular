@@ -8,6 +8,7 @@ import { CreateEmployeeComponent } from './components/create-employee/create-emp
 import { FormsModule } from '@angular/forms';
 import { VariableComponent } from './components/variable/variable.component';
 import { DataBindingComponent } from './components/data-binding/data-binding.component';
+import { StrucuralDirComponent } from './components/strucural-dir/strucural-dir.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { DataBindingComponent } from './components/data-binding/data-binding.com
     EmployeeListComponent,
     CreateEmployeeComponent,
     VariableComponent,
-    DataBindingComponent
+    DataBindingComponent,
+    StrucuralDirComponent
   ],
   imports: [
     BrowserModule,
