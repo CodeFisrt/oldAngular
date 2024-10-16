@@ -13,6 +13,7 @@ export class StrucuralDirComponent {
   num2: string = '';
   selectedCaste: string = '';
 
+isDivVisible = true;
 
   showDiv1() {
     this.isDiv1Visiable =  true;
@@ -30,4 +31,5 @@ export class StrucuralDirComponent {
     this.div2Visiable = this.div2Visiable == "Yes" ?'No':'Yes'
 
   }
+  
 }

@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Mobile</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            
+            <tbody >
+                <tr *ngFor="let stud of studentList;let srno = index">
+                    <td>{{srno+1}}</td>
+                    <td>{{stud.name}}</td>
+                    <td> {{stud.city}}</td>
+                    <td>{{stud.mobile}}</td>
+                    <td [ngClass]="stud.isActive ==  true ? 'bg-success' : 'bg-danger'">
+                        {{stud.isActive ==  true ? 'Active' : 'De-Active'}} || 
+                        <br>
+                        <span *ngIf="stud.isActive == true">Active</span>
+                        <span *ngIf="stud.isActive == false">De-Active</span>
+                        
+                    </td>
+                </tr>
+            </tbody> 
+        </table>
+    </div>
+    <div class="col-7">
+        <button *ngFor="let stud of studentList" class="btn btn-success"> {{stud.mobile}} </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 p-3">
+        <ul>
+            <li *ngFor="let city of cityList"> {{city}}</li>
+        </ul>
+        <br>
+        <label *ngFor="let cityName of cityList"> {{cityName}} </label>
+        <br>
+        <div *ngFor="let city of cityList">
+            {{city}}
+        </div>
+    </div>
+    <div class="col-3 p-3">
+        <select>
+            <option value="" selected disabled>Select</option>
+            <option  *ngFor="let city of cityList">{{city}}</option>
+            <option value="Other">Other</option>
+        </select>
+        <input type="text" [(ngModel)]="cityName" placeholder="Enter City"/> 
+        <button (click)="addCity()">Add City</button>
+    </div>
+    <div class="col-3 p-3">
+        <ul>
+            <li *ngFor="let stud of studentList"> {{stud.name}}  - {{stud.mobile}}</li>
+        </ul>
+    </div>
+    <div class="col-3 p-3">
+        <select name="" id="">
+            <option *ngFor="let student of studentList" [value]="student.studId"> {{student.name}}</option>
+        </select>
+    </div>
+
+</div>

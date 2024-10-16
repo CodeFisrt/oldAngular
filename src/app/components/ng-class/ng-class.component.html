@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-3 p-3" [ngClass]="div1Class">
+         Div 1
+    </div>
+    <div class="col-3 p-3" [ngClass]="isActive == true ? 'bg-success': 'bg-danger'">
+        Div 2
+    </div>
+    <div class="col-3 p-3" [ngClass]="div3ClassName">
+        Div 3
+    </div>
+    <div class="col-3 p-3"> --{{userSelecetdLang}}
+
+       <button class="btn" [ngClass]="userSelecetdLang == btn? 'btn-success' : 'btn-primary' "
+        *ngFor="let btn of langArray"
+        (click)="selectLanguage(btn)"> {{btn}}</button>
+    </div>
+    <div class="col-4">
+        <ul>
+            <li *ngFor="let nnumber of noList">  {{no * nnumber}}</li>
+        </ul>
+    </div>
+</div>
+
+<div class="row pt-3">
+    <div class="col-3 p-3">
+       <button class="btn btn-success" (click)="addGrrenDiv1()">Add Green</button>
+       <button class="btn btn-danger" (click)="addRedDiv1()">Add Red</button>
+    </div>
+    <div class="col-3 p-3">
+        <input type="checkbox" [(ngModel)]="isActive"/>
+    </div>
+    <div class="col-3 p-3">
+        <input type="text" [(ngModel)]="div3ClassName" />
+    </div>
+    <div class="col-3 p-3">
+
+    </div>
+</div>

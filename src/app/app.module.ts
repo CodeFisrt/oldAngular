@@ -9,6 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { VariableComponent } from './components/variable/variable.component';
 import { DataBindingComponent } from './components/data-binding/data-binding.component';
 import { StrucuralDirComponent } from './components/strucural-dir/strucural-dir.component';
+import { NgForComponent } from './components/ng-for/ng-for.component';
+import { NgClassComponent } from './components/ng-class/ng-class.component';
+import { NgStyleComponent } from './components/ng-style/ng-style.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { StrucuralDirComponent } from './components/strucural-dir/strucural-dir.
     CreateEmployeeComponent,
     VariableComponent,
     DataBindingComponent,
-    StrucuralDirComponent
+    StrucuralDirComponent,
+    NgForComponent,
+    NgClassComponent,
+    NgStyleComponent
   ],
   imports: [
     BrowserModule,

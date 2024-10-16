@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-3 p-3" [ngStyle]="{'background-color':div1BckColor,'color':divFontColor,
+    'font-size':'23px'}" >
+         Div 1
+    </div>
+    <div class="col-3 p-3" [ngStyle]="myStye">
+        Div 2 - 
+    </div>
+    <div class="col-3 p-3" [ngStyle]="{'background-color':isActive == true ? 'green' : 'yellow'}">
+        Div 3
+    </div>
+    <div class="col-3 p-3">
+        Div 4
+    </div>
+</div>
+
+<div class="row pt-3">
+    <div class="col-3 p-3">
+       <button class="btn btn-success" (click)="adDiv1Color('green')" >Add Green</button>
+       <button class="btn btn-danger" (click)="adDiv1Color('red')">Add Red</button>
+    </div>
+    <div class="col-3 p-3">
+        <input type="text"   placeholder="css key"/>
+        <input type="text"  placeholder="css value"/>
+    </div>
+    <div class="col-3 p-3">
+        <input type="checkbox" [(ngModel)]="isActive" />
+    </div>
+    <div class="col-3 p-3">
+
+    </div>
+</div>
