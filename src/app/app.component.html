@@ -1,5 +1,31 @@
- <a routerLink="dataBinding"> Data-Binding</a> || 
- <a routerLink="ng-class"> Ng-Class</a>  || 
- <a routerLink="ngFor"> Ng-For</a> 
+ 
+ <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item" >
+            <a class="nav-link" routerLink="dataBinding" routerLinkActive="active">Data-Binding</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" routerLink="ng-class" routerLinkActive="active">ngClass</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" routerLink="ngFor" routerLinkActive="active">ngFor</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" routerLink="employeeList" routerLinkActive="active">employee List</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="text" placeholder="Search">
+          <button class="btn btn-primary" type="button">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
 
  <router-outlet></router-outlet>
