@@ -10,7 +10,17 @@ import { ActivatedRoute } from '@angular/router';
 export class CreateEmployeeComponent {
 
 
+  numberPattenr = "^[0-9]*$"
   queryId: number = 0;
+
+  employeeObj: any = {
+    empName: '',
+    contactNo: '',
+    email: '',
+    department: 'IT',
+    role: 'User',
+    password: ''
+  } 
   constructor(private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe( (res:any) => {
       debugger;
@@ -18,5 +28,10 @@ export class CreateEmployeeComponent {
     })
    const data =  this.activatedRoute.snapshot ;
    debugger;
+  }
+
+  onSaveEmployee () {
+    debugger;
+    const formValue = this.employeeObj
   }
 }

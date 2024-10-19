@@ -1,1 +1,48 @@
-<p>create-employee works!</p> 
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Employee Form</h2>
+    <form #formObj="ngForm" (submit)="onSaveEmployee()"> 
+      <div class="mb-3">
+        <label for="employeeName" class="form-label">Employee Name</label>
+        <input type="text" [ngClass]="(name.touched || name.dirty) && name.errors?.['required']  ? 'border-red' : ''"
+         [ngStyle]="{'border-color': (name.touched || name.dirty) && name.errors?.['required'] ? 'red' :''}" required name="empName" #name="ngModel" [(ngModel)]="employeeObj.empName" class="form-control" id="employeeName" placeholder="Enter full name">
+        <div class="text-danger" *ngIf="name.touched || name.dirty"> 
+          <span *ngIf="name.errors?.['required']">This IS Required</span> 
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="contactNo" class="form-label">Contact Number <span class="text-danger">*</span> </label>
+        <input type="text" #mobileno="ngModel" required minlength="10" pattern="^[0-9]*$"  name="contactNo" [(ngModel)]="employeeObj.contactNo" class="form-control" id="contactNo" placeholder="Enter contact number">
+        <div class="text-danger" *ngIf="mobileno.touched || mobileno.dirty">
+          <span *ngIf="mobileno.errors?.['required']">This IS Required</span> 
+          <span *ngIf="mobileno.errors?.['minlength']">Min 10 Char Needed</span> 
+          <span *ngIf="mobileno.errors?.['pattern']">Only Numbers Allowed</span> 
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="emailId" class="form-label">Email Address</label>
+        <input type="email" name="email" [(ngModel)]="employeeObj.email" class="form-control" id="emailId" placeholder="Enter email address">
+      </div>
+
+      <div class="mb-3">
+        <label for="department" class="form-label">Department</label>
+        <select name="department"  [(ngModel)]="employeeObj.department" class="form-select" id="department">
+          <option selected>Select department</option>
+          <option value="HR">HR</option>
+          <option value="IT">IT</option>
+          <option value="Finance">Finance</option>
+        </select>
+      </div>
+      
+      <div class="mb-3">
+        <label for="role" class="form-label">Role</label>
+        <input name="role" type="text" [(ngModel)]="employeeObj.role" class="form-control" id="role" placeholder="Enter role">
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" [(ngModel)]="employeeObj.password" class="form-control" id="password" placeholder="Enter password">
+      </div>
+      {{formObj.invalid}}
+      <button type="submit" [disabled]="formObj.invalid"  class="btn btn-primary">Submit</button>
+    </form>
+  </div>

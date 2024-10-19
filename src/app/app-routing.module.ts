@@ -23,11 +23,14 @@ const routes: Routes = [
     path: 'employeeList:/',
     component: EmployeeListComponent
   },
-  {
-    path: 'createEmployee/:id',
+  // {
+  //   path: 'createEmployee/:id',
+  //   component: CreateEmployeeComponent 
+  // },
+   {
+    path: 'createEmployee',
     component: CreateEmployeeComponent 
   },
-  
 ];
 
 @NgModule({
