@@ -12,7 +12,9 @@ import { StrucuralDirComponent } from './components/strucural-dir/strucural-dir.
 import { NgForComponent } from './components/ng-for/ng-for.component';
 import { NgClassComponent } from './components/ng-class/ng-class.component';
 import { NgStyleComponent } from './components/ng-style/ng-style.component';
-
+import { UserComponent } from './components/user/user.component';
+import { provideHttpClient } from '@angular/common/http';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,14 +25,15 @@ import { NgStyleComponent } from './components/ng-style/ng-style.component';
     StrucuralDirComponent,
     NgForComponent,
     NgClassComponent,
-    NgStyleComponent
+    NgStyleComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule 
   ],
-  providers: [FormsModule],
+  providers: [FormsModule,provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,17 @@
+<p>user works! --{{userArray.length}}</p>
+
+<button class="btn btn-primary" (click)="getUsers()">Get Users</button>
+
+<button class="btn btn-primary" (click)="getUsers2()">Get Users 2</button>
+<div class="row">
+    <div class="col-3">
+        <ul>
+            <li *ngFor="let user of userArray"> {{user.name}} - {{user.email}}</li>
+        </ul>
+    </div>
+    <div class="col-4">
+        <ul>
+            <li *ngFor="let user of userList">{{user.userName}}- {{user.projectName}}</li>
+        </ul>
+    </div>
+</div>
