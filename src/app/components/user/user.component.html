@@ -1,17 +1,80 @@
-<p>user works! --{{userArray.length}}</p>
-
-<button class="btn btn-primary" (click)="getUsers()">Get Users</button>
-
-<button class="btn btn-primary" (click)="getUsers2()">Get Users 2</button>
 <div class="row">
-    <div class="col-3">
-        <ul>
-            <li *ngFor="let user of userArray"> {{user.name}} - {{user.email}}</li>
-        </ul>
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-success">
+                List -    <button class="btn btn-primary" (click)="getUsers2()">Get Users </button>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Sr No</th>
+                                    <th>Name</th> 
+                                    <th>projectName</th>
+                                    <th>role</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let user of userList;let sr = index">
+                                    <td>{{sr+1}}</td>
+                                    <td>{{user.fullName}}</td>
+                                    <td>{{user.projectName}}</td>
+                                    <td>{{user.role}}</td> 
+                                    <td>
+                                        <button class="btn btn-success" (click)="editUSer(user)">Edit</button>
+                                        <button class="btn btn-danger" (click)="deleteUSer(user.userId)">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+             
+            </div>
+        </div>
     </div>
     <div class="col-4">
-        <ul>
-            <li *ngFor="let user of userList">{{user.userName}}- {{user.projectName}}</li>
-        </ul>
+        <div class="card">
+            <div class="card-header bg-success">
+                Form
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">userName</label>
+                        <input type="text" [(ngModel)]="busUserObj.userName" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">emailId</label>
+                        <input type="text" [(ngModel)]="busUserObj.emailId"  class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">fullName</label>
+                        <input type="text"  [(ngModel)]="busUserObj.fullName" class="form-control">
+                    </div> 
+                    <div class="col-6">
+                        <label for="">role</label>
+                        <input type="text"  [(ngModel)]="busUserObj.role" class="form-control">
+                    </div> 
+                    <div class="col-6">
+                        <label for="">password</label>
+                        <input type="text"  [(ngModel)]="busUserObj.password" class="form-control">
+                    </div> 
+                </div>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <button *ngIf="busUserObj.userId ===0 " class="btn btn-success" (click)="saveUser()">Save User</button>
+                        <button *ngIf="busUserObj.userId !==0 " class="btn btn-warning" (click)="updateUser()">Update User</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+
+ 
+
+   

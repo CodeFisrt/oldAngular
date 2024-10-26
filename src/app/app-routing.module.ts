@@ -6,6 +6,7 @@ import { NgForComponent } from './components/ng-for/ng-for.component';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { CreateEmployeeComponent } from './components/create-employee/create-employee.component';
 import { UserComponent } from './components/user/user.component';
+import { ReactiveUserComponent } from './components/reactive-user/reactive-user.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,9 @@ const routes: Routes = [
   },{
     path: 'user',
     component: UserComponent 
+  },{
+    path: 'reactive-user',
+    component: ReactiveUserComponent 
   },
 ];
 

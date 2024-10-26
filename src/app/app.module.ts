@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { CreateEmployeeComponent } from './components/create-employee/create-employee.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VariableComponent } from './components/variable/variable.component';
 import { DataBindingComponent } from './components/data-binding/data-binding.component';
 import { StrucuralDirComponent } from './components/strucural-dir/strucural-dir.component';
@@ -14,6 +14,7 @@ import { NgClassComponent } from './components/ng-class/ng-class.component';
 import { NgStyleComponent } from './components/ng-style/ng-style.component';
 import { UserComponent } from './components/user/user.component';
 import { provideHttpClient } from '@angular/common/http';
+import { ReactiveUserComponent } from './components/reactive-user/reactive-user.component';
  
 @NgModule({
   declarations: [
@@ -26,12 +27,14 @@ import { provideHttpClient } from '@angular/common/http';
     NgForComponent,
     NgClassComponent,
     NgStyleComponent,
-    UserComponent
+    UserComponent,
+    ReactiveUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule 
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [FormsModule,provideHttpClient()],
   bootstrap: [AppComponent]
