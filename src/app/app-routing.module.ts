@@ -7,6 +7,7 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { CreateEmployeeComponent } from './components/create-employee/create-employee.component';
 import { UserComponent } from './components/user/user.component';
 import { ReactiveUserComponent } from './components/reactive-user/reactive-user.component';
+import { StrucuralDirComponent } from './components/strucural-dir/strucural-dir.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
   },{
     path: 'reactive-user',
     component: ReactiveUserComponent 
+  },
+  {
+    path: 'structurtal',
+    component: StrucuralDirComponent 
   },
 ];
 

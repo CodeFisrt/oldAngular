@@ -54,9 +54,23 @@
             <option value="Other">Other</option>
         </select>
     </div>
-    <div class="col-3" >
-        
+    <div class="col-3" > 
         <input *ngIf="selectedCaste == 'Other'" type="text" placeholder="Enter Other caste" class="form-control">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <input type="text" [(ngModel)]="startingDayChar" maxlength="3" name="" id="">
+    </div>
+    <div class="col-3">
+        <div [ngSwitch]="startingDayChar">
+            <div *ngSwitchCase="'mon'">Monday</div>
+            <div  *ngSwitchCase="'tue'">Tuesday</div>
+            <div  *ngSwitchCase="'wed'">wednesday</div> 
+            <div *ngSwitchDefault>__</div>
+        </div>
+         
     </div>
 </div>
 

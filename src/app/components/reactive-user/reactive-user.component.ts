@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-reactive-user',
@@ -12,8 +13,8 @@ export class ReactiveUserComponent {
 
   userForm: FormGroup = new FormGroup({
     userId: new FormControl(0),
-    userName: new FormControl(""),
-    emailId: new FormControl(""),
+    userName: new FormControl("",[Validators.required,Validators.minLength(5)]),
+    emailId: new FormControl("",[Validators.required,Validators.email]),
     fullName: new FormControl(""),
     role: new FormControl(""),
     createdDate: new FormControl(new Date()),
@@ -23,13 +24,16 @@ export class ReactiveUserComponent {
     refreshTokenExpiryTime: new FormControl(new Date())
   })
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private userSrv: UserService) {
 
   }
 
   getUsers2() {
-    this.http.get("https://projectapi.gerasim.in/api/BusBooking/GetAllUsers").subscribe((res: any) => {
-      debugger;
+    // this.http.get("https://projectapi.gerasim.in/api/BusBooking/GetAllUsers").subscribe((res: any) => {
+    //   debugger;
+    //   this.userList = res.data;
+    // })
+    this.userSrv.getUsers().subscribe((res:any)=>{
       this.userList = res.data;
     })
   }
@@ -38,7 +42,7 @@ export class ReactiveUserComponent {
     debugger;
     this.userForm = new FormGroup({
       userId: new FormControl(data.userId),
-      userName: new FormControl(data.userName),
+      userName: new FormControl("",[Validators.required,Validators.minLength(5)]),
       emailId: new FormControl(data.emailId),
       fullName: new FormControl(data.fullName),
       role: new FormControl(data.role),
@@ -48,21 +52,25 @@ export class ReactiveUserComponent {
       refreshToken: new FormControl(data.refreshToken),
       refreshTokenExpiryTime: new FormControl(data.refreshTokenExpiryTime),
     })
+    this.userForm.controls['userName'].markAsDirty({onlySelf:true,emitEvent: true});
   }
 
 
   onSaveUser() {
     debugger;
-    const formValue = this.userForm.value;
-    this.http.post("https://projectapi.gerasim.in/api/BusBooking/AddNewUser", formValue).subscribe((res: any) => {
-      debugger;
-      if (res.result) {
-        alert("User Created Success");
-        this.getUsers2();
-        this.userForm.reset();
-      } else {
-        alert(res.message)
-      }
-    })
+    if(!this.userForm.invalid) {
+      const formValue = this.userForm.value;
+      this.userSrv.saveUser(formValue).subscribe((res: any) => {
+        debugger;
+        if (res.result) {
+          alert("User Created Success");
+          this.getUsers2();
+          this.userForm.reset();
+        } else {
+          alert(res.message)
+        }
+      })
+    }
+   
   }
 }

@@ -45,7 +45,12 @@
                 <div class="row">
                     <div class="col-6">
                         <label for="">userName</label>
-                        <input type="text" [(ngModel)]="busUserObj.userName" class="form-control">
+                        <input type="text" #name="ngModel"  [(ngModel)]="busUserObj.userName" required minlength="5" class="form-control">
+                        <div class="text-danger">
+                            {{name.errors | json}}
+                            <!-- <span  >This Is Required</span>
+                            <span>Min 5 Char Needed</span> -->
+                        </div>
                     </div>
                     <div class="col-6">
                         <label for="">emailId</label>

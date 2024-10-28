@@ -12,6 +12,7 @@ export class StrucuralDirComponent {
   num1: string = '';
   num2: string = '';
   selectedCaste: string = '';
+  startingDayChar: string = '';
 
 isDivVisible = true;
 

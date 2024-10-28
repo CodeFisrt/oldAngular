@@ -42,15 +42,22 @@
                 Form
             </div>
             <div class="card-body">
-                <form [formGroup]="userForm">
+                <form [formGroup]="userForm" (ngSubmit)="onSaveUser()">
                     <div class="row">
                         <div class="col-6">
                             <label for="">userName</label>
-                            <input type="text"  formControlName="userName"  class="form-control">
+                            <input type="text"  formControlName="userName"  class="form-control"> 
+                            <div class="text-danger" *ngIf="userForm.controls['userName'].touched || userForm.controls['userName'].dirty">
+                                <span *ngIf="userForm.controls['userName'].errors?.['required']">This IS Required</span> 
+                                <span *ngIf="userForm.controls['userName'].errors?.['minlength']">Min 5 Char Needed</span>  
+                            </div>
                         </div>
                         <div class="col-6">
                             <label for="">emailId</label>
                             <input type="text" formControlName="emailId"  class="form-control">
+                            <div class="text-danger" *ngIf="userForm.controls['emailId'].touched">
+                                <span *ngIf="userForm.controls['emailId'].errors?.['email']">InValid Email</span>  
+                              </div>
                         </div>
                         <div class="col-6">
                             <label for="">fullName</label>
@@ -68,7 +75,7 @@
                     
                     <div class="row">
                         <div class="col-12">
-                            <button  class="btn btn-success"  (click)="onSaveUser()">Save User</button>
+                            <button type="submit" class="btn btn-success" >Save User</button>
                             <button   class="btn btn-warning"  >Update User</button>
                         </div>
                     </div>

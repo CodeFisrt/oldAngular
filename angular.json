@@ -75,9 +75,11 @@
               "buildTarget": "oldAngular:build:production"
             },
             "development": {
-              "buildTarget": "oldAngular:build:development"
+              "buildTarget": "oldAngular:build:development",
+              "port": 4209
             }
           },
+          
           "defaultConfiguration": "development"
         },
         "extract-i18n": {

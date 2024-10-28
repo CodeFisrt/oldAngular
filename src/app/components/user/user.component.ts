@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-user',
@@ -30,13 +31,17 @@ export class UserComponent {
     "email": ""
   }
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private userSrv: UserService) {
 
   }
 
   getUsers() {
-    this.http.get("https://jsonplaceholder.typicode.com/users").subscribe((resposne:any)=>{
-      this.userArray = resposne;
+    // this.http.get("https://jsonplaceholder.typicode.com/users").subscribe((resposne:any)=>{
+    //   this.userArray = resposne;
+    // })
+
+    this.userSrv.getUsers().subscribe((res:any)=>{
+      this.userArray = res;
     })
   }
 
@@ -105,7 +110,7 @@ export class UserComponent {
  
   saveUser() {
       debugger;
-    this.http.post("https://projectapi.gerasim.in/api/BusBooking/AddNewUser",this.busUserObj).subscribe((res:any)=>{
+    this.userSrv.saveUser(this.busUserObj).subscribe((res:any)=>{
       debugger;
       if(res.result) {
         alert("User Created Success");
