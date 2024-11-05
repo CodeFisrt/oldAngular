@@ -1,2 +1,13 @@
-<p>variable works!</p>
-{{firstName}}
+ Variable
+ <div *ngIf="isVisiable">
+    <h1>Heloo</h1>
+    <app-pipes></app-pipes>
+    <app-ng-for></app-ng-for>
+
+ </div>
+ <app-employee-list></app-employee-list>
+
+
+ <button class="btn btn-danger" (click)="showHide(false)">hide </button>
+ 
+ <button class="btn btn-success"  (click)="showHide(true)">Show </button>

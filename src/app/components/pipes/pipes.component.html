@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-3">
+         firstName == {{firstName}}
+        <div>
+            uppercase=> {{firstName | uppercase}}
+        </div>
+        <div>
+            uppercase=> {{firstName | lowercase}}
+        </div>
+        <div>
+            uppercase=> {{surname | titlecase}}
+        </div>
+    </div>
+    <div class="col-3">
+        studentObj => {{studentObj}}
+        <div>
+            {{studentObj | json}}
+        </div>
+    </div>
+    <div class="col-3">
+        cityList => {{cityList}}
+
+        <div>
+            {{cityList | slice:3}}
+        </div>
+        <div>
+            {{cityList | slice:3:5}}
+        </div>
+    </div>
+    <div class="col-6 pt-4">
+        currentDate => {{currentDate}}
+        <div>
+            {{currentDate | date}}
+        </div>
+        <div>
+            {{currentDate | date:'dd-MM-yyyy'}}
+        </div>
+        <div>
+            {{currentDate | date:'dd-MMM-yyyy'}}
+        </div>
+        <div>
+            {{currentDate | date:'dd-MMMM-yyyy'}}
+        </div>
+        <div>
+            {{currentDate | date:'dd-MMMM-yy'}}
+        </div>
+        <div>
+            {{currentDate | date:'dd/MMMM/yy'}}
+        </div>
+        <div>
+            {{currentDate | date:'hh:mm:ss'}}
+        </div>
+    </div>
+</div>

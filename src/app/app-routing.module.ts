@@ -8,6 +8,8 @@ import { CreateEmployeeComponent } from './components/create-employee/create-emp
 import { UserComponent } from './components/user/user.component';
 import { ReactiveUserComponent } from './components/reactive-user/reactive-user.component';
 import { StrucuralDirComponent } from './components/strucural-dir/strucural-dir.component';
+import { PipesComponent } from './components/pipes/pipes.component';
+import { VariableComponent } from './components/variable/variable.component';
 
 const routes: Routes = [
   {
@@ -43,6 +45,13 @@ const routes: Routes = [
   {
     path: 'structurtal',
     component: StrucuralDirComponent 
+  },
+  {
+    path: 'pipes',
+    component: PipesComponent 
+  },{
+    path: 'variable',
+    component: VariableComponent 
   },
 ];
 

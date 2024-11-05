@@ -1,18 +1,12 @@
-import { Component } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-variable',
   templateUrl: './variable.component.html',
   styleUrl: './variable.component.css'
 })
-export class VariableComponent {
-
-  //premitive Data Type: string, boolean, number,date, 
-  //derived data type: array , object,
-  //null & undefined
-  //any
-
-
+export class VariableComponent implements OnInit,AfterContentInit,AfterContentChecked,OnDestroy, AfterViewInit,AfterViewChecked {
+ 
   //declaration + initialization
   firstName: string = "Chetan";
   startingChar : string = "C";
@@ -24,6 +18,7 @@ export class VariableComponent {
   student: string;
   //declartion + initialzation without datatype
   lastName = "Jogi"; 
+  isVisiable: boolean = false;
 
   constructor() {
     this.student = "";
@@ -33,7 +28,35 @@ export class VariableComponent {
     // this.student = "sadadasd";
     // this.student = true;
     //this.lastName = 213;
+    console.log("constructor")
+  }
 
+  showHide(value: boolean) {
+    this.isVisiable = value;
+  }
+  ngOnInit(): void {
+      console.log("ngOnInit")
+      //to iniotiate api call function
+      
+  }
+  getAllCuser() {
+    
+  }
+  ngAfterViewInit(): void {
+    console.log("ngAfterViewInit")
+  }
+  ngAfterViewChecked(): void {
+    console.log("ngAfterViewChecked")
+  }
+  ngAfterContentChecked(): void {
+    console.log("ngAfterContentChecked")
+  }
+  ngAfterContentInit(): void {
+    console.log("ngAfterContentInit")
+  }
+  ngOnDestroy(): void {
+    console.log("ngOnDestroy")
+    alert("Varibale Comp: ngOnDestroy")
   }
 
 

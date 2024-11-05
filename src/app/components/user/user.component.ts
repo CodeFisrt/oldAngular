@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { UserService } from '../../services/user.service';
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
-export class UserComponent {
+export class UserComponent implements OnInit {
 
   userArray: any [] = [];
   userList: any []= [];
@@ -33,6 +33,9 @@ export class UserComponent {
 
   constructor(private http: HttpClient,private userSrv: UserService) {
 
+  }
+  ngOnInit(): void {
+      this.getUsers2()
   }
 
   getUsers() {

@@ -15,6 +15,7 @@ import { NgStyleComponent } from './components/ng-style/ng-style.component';
 import { UserComponent } from './components/user/user.component';
 import { provideHttpClient } from '@angular/common/http';
 import { ReactiveUserComponent } from './components/reactive-user/reactive-user.component';
+import { PipesComponent } from './components/pipes/pipes.component';
  
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ReactiveUserComponent } from './components/reactive-user/reactive-user.
     NgClassComponent,
     NgStyleComponent,
     UserComponent,
-    ReactiveUserComponent
+    ReactiveUserComponent,
+    PipesComponent
   ],
   imports: [
     BrowserModule,
