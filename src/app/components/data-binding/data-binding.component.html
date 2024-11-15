@@ -1,25 +1,52 @@
 <div class="row">
+    <div class="col-5 p-3">
+        <app-btn-group (onSelectBtn)="onFruntSelect($event)" [btnList]="['Mango','Apple','Pear','Jamun']"></app-btn-group>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <app-alert [alertType]="'Danger'" [alertMessage]="'Welcome To Danger Alert'"></app-alert>
+    </div>
+    <div class="col-4" >
+        <app-alert [alertType]="'Success'" [alertMessage]="'This is Warning alert'"></app-alert>
+    </div>
+    <div class="col-4">
+        <app-progress-bar [progress]="70" [progressClassName]="'bg-success'"></app-progress-bar>
+    </div>
+    <div class="col-4">
+        <app-progress-bar [progress]="30" [progressClassName]="'bg-warning'"></app-progress-bar>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <app-alert></app-alert>
+    </div>
+    <div class="col-6">
+        <app-alert></app-alert>
+    </div>
+</div>
+<div class="row">
     <div class="col-3">
         <label for="">Name</label>
         <input type="text" [(ngModel)]="studentObj.name" class="form-control">
     </div>
     <div class="col-3">
         <label for="">City</label>
-        <input type="text"  [(ngModel)]="studentObj.city" class="form-control">
+        <input type="text" [(ngModel)]="studentObj.city" class="form-control">
     </div>
 </div>
 <div class="row">
     <div class="col-6">
         <label for="">Address</label>
-        <textarea  [(ngModel)]="studentObj.address" class="form-control"></textarea>
-    </div> 
+        <textarea [(ngModel)]="studentObj.address" class="form-control"></textarea>
+    </div>
 </div>
 <div class="row">
     <div class="col-3">
         <label (change)="showAlertMessage()">Click me </label>
     </div>
     <div class="col-3">
-        <select  [(ngModel)]="selectedCountry" (change)="showAlertMessage()">
+        <select [(ngModel)]="selectedCountry" (change)="showAlertMessage()">
             <option value="">Select Country</option>
             <option value="USa">USa</option>
             <option value="India">India</option>
@@ -38,12 +65,12 @@
         <button class="btn btn-primary" (click)="showAlert('Angular 18')">Show Course Name</button>
     </div>
     <div class="col-2">
-        <input type="text"  [value]="courseName" placeholder="Enter Name">
+        <input type="text" [value]="courseName" placeholder="Enter Name">
     </div>
     <div class="col-2">
-        <input type="text" [(ngModel)]="courseName"> 
+        <input type="text" [(ngModel)]="courseName">
     </div>
-    <div class="col-2"> 
+    <div class="col-2">
         {{courseName}}
     </div>
 </div>
@@ -55,7 +82,7 @@
             <div class="col-4">
                 From .ts to .html => interpolation , property binding
                 <br>
-                firstName =>  {{firstName}}
+                firstName => {{firstName}}
                 <br>
                 <label id="myLabel">{{productPrice}}</label>
                 <p>{{currentDate}}</p>
@@ -63,7 +90,7 @@
             </div>
             <div class="col-4">
                 From .html to .ts
-            </div> 
+            </div>
         </div>
     </div>
     <div class="col-6">
@@ -72,7 +99,7 @@
             <div class="col-12">
                 using ng Model
             </div>
-              
+
         </div>
     </div>
 </div>
@@ -80,8 +107,6 @@
 <div class="row">
     <div [class]="className">
         <input [type]="inputType" name="" id="">
-        <textarea name=""   rows="{{noOfRow}}"></textarea>
+        <textarea name="" rows="{{noOfRow}}"></textarea>
     </div>
 </div>
-
-

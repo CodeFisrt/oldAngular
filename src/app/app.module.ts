@@ -16,6 +16,9 @@ import { UserComponent } from './components/user/user.component';
 import { provideHttpClient } from '@angular/common/http';
 import { ReactiveUserComponent } from './components/reactive-user/reactive-user.component';
 import { PipesComponent } from './components/pipes/pipes.component';
+import { AlertComponent } from './shared/alert/alert.component';
+import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
+import { BtnGroupComponent } from './shared/btn-group/btn-group.component';
  
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { PipesComponent } from './components/pipes/pipes.component';
     NgStyleComponent,
     UserComponent,
     ReactiveUserComponent,
-    PipesComponent
+    PipesComponent,
+    AlertComponent,
+    ProgressBarComponent,
+    BtnGroupComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,8 @@ export class NgForComponent {
 
   cityList: string [] = [ "Pune", "Nagpur" ,"Jabalpur","Mumbai"]
     cityName: string = '';
+    alert: string = "Warning";
+    messgaghe: string = 'This is Welcome Message';
 
   studentList : any [] = [
     {studId:13, isActive:false, name: 'AAA',city:'Pune',mobile: '1111111'},

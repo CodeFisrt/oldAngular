@@ -1,8 +1,18 @@
 <div class="row">
+    <div class="col-6">
+        <app-btn-group [btnList]="carList"></app-btn-group>
+    </div>
+</div>
+<div class="row" *ngIf="alertType != ''">
+    <div class="col-12">
+        <app-alert [alertMessage]="alertMessage" [alertType]="alertType"></app-alert>
+    </div> 
+</div>
+<div class="row">
     <div class="col-8">
         <div class="card">
             <div class="card-header bg-success">
-                List -     
+                List     
             </div>
             <div class="card-body">
                 <div class="row">
@@ -79,6 +89,7 @@
             </div>
         </div>
     </div>
+</div>
 
  
 
