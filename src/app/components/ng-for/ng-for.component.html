@@ -5,27 +5,29 @@
     </div>
     <div class="col-3">
         <button (click)="navigate()" class="btn btn-primary">Go to Employee</button>
+        <button (click)="addEmpl()" class="btn btn-primary">Add  Employee</button>
     </div>
 </div>
 <div class="row">
     <div class="col-5">
+        {{alert|na}}
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Sr No</th>
                     <th>Name</th>
-                    <th>City</th>
+                    <th appHightlight>City</th>
                     <th>Mobile</th>
-                    <th>Status</th>
+                    <th appHightlight>Status</th>
                 </tr>
             </thead>
             
             <tbody >
                 <tr *ngFor="let stud of studentList;let srno = index">
                     <td>{{srno+1}}</td>
-                    <td>{{stud.name}}</td>
+                    <td>{{stud.name| na  :'asd'}}</td>
                     <td> {{stud.city}}</td>
-                    <td>{{stud.mobile}}</td>
+                    <td>{{stud.mobile }}</td>
                     <td [ngClass]="stud.isActive ==  true ? 'bg-success' : 'bg-danger'">
                         {{stud.isActive ==  true ? 'Active' : 'De-Active'}} || 
                         <br>

@@ -15,6 +15,8 @@ export class UserComponent implements OnInit {
   alertType: string = '';
   alertMessage: string = '';
 
+  tableHeadingList: string [] = [ "fullName", "projectName", "role"]
+
   busUserObj: any = {
     "userId": 0,
     "userName": "",
@@ -59,7 +61,7 @@ export class UserComponent implements OnInit {
   }
 
   editUSer(user: any) {
-
+    debugger;
     const strObj = JSON.stringify(user);
     const parseObj = JSON.parse(strObj)
 

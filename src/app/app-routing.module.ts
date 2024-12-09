@@ -10,6 +10,7 @@ import { ReactiveUserComponent } from './components/reactive-user/reactive-user.
 import { StrucuralDirComponent } from './components/strucural-dir/strucural-dir.component';
 import { PipesComponent } from './components/pipes/pipes.component';
 import { VariableComponent } from './components/variable/variable.component';
+import { UserAppComponent } from './components/user-app/user-app.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,9 @@ const routes: Routes = [
   },{
     path: 'variable',
     component: VariableComponent 
+  },{
+    path: 'userapp',
+    component: UserAppComponent 
   },
 ];
 

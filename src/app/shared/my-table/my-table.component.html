@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th *ngFor="let heading of headingArray">{{heading}}</th> 
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of gridData">
+            <td *ngFor="let td of headingArray">
+                 {{data[td] |na}}
+            </td>
+            <td>
+                <button class="btn btn-success" (click)="onEditRecord(data)">Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

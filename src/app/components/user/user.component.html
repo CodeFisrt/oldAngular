@@ -1,94 +1,98 @@
-<div class="row">
-    <div class="col-6">
-        <app-btn-group [btnList]="carList"></app-btn-group>
-    </div>
-</div>
-<div class="row" *ngIf="alertType != ''">
-    <div class="col-12">
-        <app-alert [alertMessage]="alertMessage" [alertType]="alertType"></app-alert>
-    </div> 
-</div>
-<div class="row">
-    <div class="col-8">
-        <div class="card">
-            <div class="card-header bg-success">
-                List     
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Sr No</th>
-                                    <th>Name</th> 
-                                    <th>projectName</th>
-                                    <th>role</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let user of userList;let sr = index">
-                                    <td>{{sr+1}}</td>
-                                    <td>{{user.fullName}}</td>
-                                    <td>{{user.projectName}}</td>
-                                    <td>{{user.role}}</td> 
-                                    <td>
-                                        <button class="btn btn-success" (click)="editUSer(user)">Edit</button>
-                                        <button class="btn btn-danger" (click)="deleteUSer(user.userId)">Delete</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-             
-            </div>
+<div class="container" >
+    <div class="row">
+        <div class="col-6">
+            <app-btn-group [btnList]="carList"></app-btn-group>
         </div>
     </div>
-    <div class="col-4">
-        <div class="card">
-            <div class="card-header bg-success">
-                Form
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-6">
-                        <label for="">userName</label>
-                        <input type="text" #name="ngModel"  [(ngModel)]="busUserObj.userName" required minlength="5" class="form-control">
-                        <div class="text-danger">
-                            {{name.errors | json}}
-                            <!-- <span  >This Is Required</span>
-                            <span>Min 5 Char Needed</span> -->
+    <div class="row" *ngIf="alertType != ''">
+        <div class="col-12">
+            <app-alert [alertMessage]="alertMessage" [alertType]="alertType"></app-alert>
+        </div> 
+    </div>
+    <div class="row" >
+        <div class="col-8">
+            <div class="card">
+                <div class="card-header bg-success">
+                    List     
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12" appOnScroll style="height: 400px;overflow: auto;">
+                            <!-- <app-my-table (onEdit)="editUSer($event)" [headingArray]="tableHeadingList" [gridData]="userList"></app-my-table> -->
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Sr No</th>
+                                        <th>Name</th> 
+                                        <th>projectName</th>
+                                        <th>role</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let user of userList;let sr = index">
+                                        <td>{{sr+1}}</td>
+                                        <td>{{user.fullName | na :'na'}}</td>
+                                        <td>{{user.projectName |na}}</td>
+                                        <td>{{user.role  |na}}</td> 
+                                        <td>
+                                            <button class="btn btn-success" (click)="editUSer(user)">Edit</button>
+                                            <button class="btn btn-danger" (click)="deleteUSer(user.userId)">Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <label for="">emailId</label>
-                        <input type="text" [(ngModel)]="busUserObj.emailId"  class="form-control">
-                    </div>
-                    <div class="col-6">
-                        <label for="">fullName</label>
-                        <input type="text"  [(ngModel)]="busUserObj.fullName" class="form-control">
-                    </div> 
-                    <div class="col-6">
-                        <label for="">role</label>
-                        <input type="text"  [(ngModel)]="busUserObj.role" class="form-control">
-                    </div> 
-                    <div class="col-6">
-                        <label for="">password</label>
-                        <input type="text"  [(ngModel)]="busUserObj.password" class="form-control">
-                    </div> 
+                 
                 </div>
-                
-                <div class="row">
-                    <div class="col-12">
-                        <button *ngIf="busUserObj.userId ===0 " class="btn btn-success" (click)="saveUser()">Save User</button>
-                        <button *ngIf="busUserObj.userId !==0 " class="btn btn-warning" (click)="updateUser()">Update User</button>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header bg-success">
+                    Form
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">userName</label>
+                            <input type="text" #name="ngModel" appAutoFocus  [(ngModel)]="busUserObj.userName" required minlength="5" class="form-control">
+                            <div class="text-danger">
+                                {{name.errors | json}}
+                                <!-- <span  >This Is Required</span>
+                                <span>Min 5 Char Needed</span> -->
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <label for="">emailId</label>
+                            <input type="text" [(ngModel)]="busUserObj.emailId"  class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">fullName</label>
+                            <input type="text"  [(ngModel)]="busUserObj.fullName" class="form-control">
+                        </div> 
+                        <div class="col-6">
+                            <label for="">role</label>
+                            <input type="text"  [(ngModel)]="busUserObj.role" class="form-control">
+                        </div> 
+                        <div class="col-6">
+                            <label for="">password</label>
+                            <input type="text"  [(ngModel)]="busUserObj.password" class="form-control">
+                        </div> 
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <button *ngIf="busUserObj.userId ===0 " class="btn btn-success" (click)="saveUser()">Save User</button>
+                            <button *ngIf="busUserObj.userId !==0 " class="btn btn-warning" (click)="updateUser()">Update User</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
 </div>
 
  

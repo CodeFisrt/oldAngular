@@ -14,12 +14,18 @@ export class NgForComponent {
     messgaghe: string = 'This is Welcome Message';
 
   studentList : any [] = [
-    {studId:13, isActive:false, name: 'AAA',city:'Pune',mobile: '1111111'},
-    {studId:34, isActive:true, name: 'BBB',city:'Mumbai',mobile: '2223333'},
-    {studId:54, isActive:false, name: 'CCC',city:'Pune',mobile: '55566677'}
+    {studId:13, isActive:false, name: 'AAA',mobile: '1111111'},
+    {studId:34, isActive:true, name: null,city:'Mumbai',mobile: '2223333'},
+    {studId:54, isActive:false, name: 'CCC',city:'Pune',mobile: ''}
   ];
   constructor(public router: Router) {
 
+  }
+
+  addEmpl() {
+    this.studentList.push({
+      studId:15, isActive:false, name: 'FFFF',mobile: '334455'
+    })
   }
 
 

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './create-employee.component.html',
   styleUrl: './create-employee.component.css', 
 })
-export class CreateEmployeeComponent {
+export class CreateEmployeeComponent implements OnInit ,AfterViewInit{
 
 
   numberPattenr = "^[0-9]*$"
@@ -28,6 +28,19 @@ export class CreateEmployeeComponent {
     })
    const data =  this.activatedRoute.snapshot ;
    debugger;
+  }
+
+  ngOnInit(): void {
+    
+  }
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      const nameTextbox = document.getElementById("txtName");
+      if(nameTextbox != null) {
+        nameTextbox.focus()
+      }
+    }, 5000);
+   
   }
 
   onSaveEmployee () {
