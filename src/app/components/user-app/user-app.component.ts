@@ -36,7 +36,7 @@ export class UserAppComponent implements OnInit {
     this.http.get('https://projectapi.gerasim.in/api/UserApp/GetAllUsers').subscribe((res:any)=>{
       this.userList = res.data;
     },error=> {
-      debugger;
+     
     })
   }
 

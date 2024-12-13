@@ -14,7 +14,7 @@ export class MyTableComponent {
   @Output () onEdit = new EventEmitter<any>();
 
   onEditRecord(data: any) {
-    debugger;
+   
     this.onEdit.emit(data);
   }
 

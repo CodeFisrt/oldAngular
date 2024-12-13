@@ -13,7 +13,7 @@ export class HightlightDirective {
    //HOST Listner
    @HostListener('mouseover')
    onMouseHover() {
-    debugger;
+   
      this.elementRef.nativeElement.style.color = "red";
     this.elementRef.nativeElement.style.backgroundColor ="yellow"
    }

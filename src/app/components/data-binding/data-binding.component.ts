@@ -23,7 +23,7 @@ export class DataBindingComponent {
   }
 
   onFruntSelect(fruiitName: string) {
-    debugger;
+   
   }
 
   showAlert(message: string) {

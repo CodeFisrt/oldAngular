@@ -23,11 +23,11 @@ export class CreateEmployeeComponent implements OnInit ,AfterViewInit{
   } 
   constructor(private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe( (res:any) => {
-      debugger;
+     
       this.queryId =  res.id;
     })
    const data =  this.activatedRoute.snapshot ;
-   debugger;
+  
   }
 
   ngOnInit(): void {
@@ -44,7 +44,7 @@ export class CreateEmployeeComponent implements OnInit ,AfterViewInit{
   }
 
   onSaveEmployee () {
-    debugger;
+   
     const formValue = this.employeeObj
   }
 }

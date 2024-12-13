@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,12 @@ import { Injectable } from '@angular/core';
 
 export class UserService {
 
-  apiUrl: string = "https://projectapi.gerasim.in/api/BusBooking/"
+  apiUrl: string = "https://projectapi.gerasim.in/api/BusBooking/";
+
+  currentMode$ : Subject<string> = new Subject<string>();
+
+  currentThemeBehvaiout: BehaviorSubject< string> = new BehaviorSubject<string>("Dark")
+
   constructor(private http: HttpClient) { }
 
 
@@ -18,7 +24,7 @@ export class UserService {
   }
 
   saveUser(obj:any) {
-    debugger;
+   
     return this.http.post(`${this.apiUrl}AddNewUser`,obj)
   }
 }

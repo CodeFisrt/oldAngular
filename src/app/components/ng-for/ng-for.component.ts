@@ -36,7 +36,7 @@ export class NgForComponent {
 
   addCity() {
     const isCityExist = this.cityList.find(x=> x == this.cityName)
-    debugger;
+   
     if(isCityExist == undefined) {
       this.cityList.push(this.cityName)
     } else {

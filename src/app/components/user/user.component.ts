@@ -55,13 +55,13 @@ export class UserComponent implements OnInit {
 
   getUsers2() {
     this.http.get("https://projectapi.gerasim.in/api/BusBooking/GetAllUsers").subscribe((res: any) => {
-      debugger;
+     
       this.userList = res.data;
     })
   }
 
   editUSer(user: any) {
-    debugger;
+   
     const strObj = JSON.stringify(user);
     const parseObj = JSON.parse(strObj)
 
@@ -71,7 +71,7 @@ export class UserComponent implements OnInit {
   deleteUSer(id: number) {
 
     const isDelete = confirm("Are you sure want to Delete");
-    debugger;
+   
     if (isDelete) {
       this.http.delete("https://projectapi.gerasim.in/api/BusBooking/DeleteUserByUserId?userId=" + id).subscribe((res: any) => {
         if (res.result) {
@@ -110,16 +110,16 @@ export class UserComponent implements OnInit {
   }
 
   // saveUser() {
-  //   debugger;
+  //  
   //   this.http.post("https://jsonplaceholder.typicode.com/users",this.userObj).subscribe((res:any)=>{
-  //     debugger;
+  //    
   //   })
   // }
 
   saveUser() {
-    debugger;
+   
     this.userSrv.saveUser(this.busUserObj).subscribe((res: any) => {
-      debugger;
+     
       if (res.result) {
         // alert("User Created Success");
         this.alertType = 'Success';

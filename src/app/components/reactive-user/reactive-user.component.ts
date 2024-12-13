@@ -30,7 +30,7 @@ export class ReactiveUserComponent {
 
   getUsers2() {
     // this.http.get("https://projectapi.gerasim.in/api/BusBooking/GetAllUsers").subscribe((res: any) => {
-    //   debugger;
+    //  
     //   this.userList = res.data;
     // })
     this.userSrv.getUsers().subscribe((res:any)=>{
@@ -39,7 +39,7 @@ export class ReactiveUserComponent {
   }
 
   onEdit(data: any) {
-    debugger;
+   
     this.userForm = new FormGroup({
       userId: new FormControl(data.userId),
       userName: new FormControl("",[Validators.required,Validators.minLength(5)]),
@@ -57,11 +57,11 @@ export class ReactiveUserComponent {
 
 
   onSaveUser() {
-    debugger;
+   
     if(!this.userForm.invalid) {
       const formValue = this.userForm.value;
       this.userSrv.saveUser(formValue).subscribe((res: any) => {
-        debugger;
+       
         if (res.result) {
           alert("User Created Success");
           this.getUsers2();

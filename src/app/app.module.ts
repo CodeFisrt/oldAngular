@@ -26,6 +26,7 @@ import { AutoFocusDirective } from './directive/auto-focus.directive';
 import { OnScrollDirective } from './directive/on-scroll.directive';
 import { UserAppComponent } from './components/user-app/user-app.component';
 import { customInterceptor } from './intercepto/custom.interceptor';
+import { CarComponent } from './components/car/car.component';
  
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { customInterceptor } from './intercepto/custom.interceptor';
     HightlightDirective,
     AutoFocusDirective,
     OnScrollDirective,
-    UserAppComponent
+    UserAppComponent,
+    CarComponent
   ],
   imports: [
     BrowserModule,

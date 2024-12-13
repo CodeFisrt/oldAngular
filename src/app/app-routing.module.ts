@@ -11,6 +11,7 @@ import { StrucuralDirComponent } from './components/strucural-dir/strucural-dir.
 import { PipesComponent } from './components/pipes/pipes.component';
 import { VariableComponent } from './components/variable/variable.component';
 import { UserAppComponent } from './components/user-app/user-app.component';
+import { CarComponent } from './components/car/car.component';
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
   },{
     path: 'userapp',
     component: UserAppComponent 
+  },
+  {
+    path: 'car',
+    component: CarComponent 
   },
 ];
 

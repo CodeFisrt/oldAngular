@@ -13,7 +13,7 @@ export class BtnGroupComponent {
 
 
   onClickBtn(btnName: string) {
-    debugger;
+   
     this.onSelectBtn.emit(btnName)
   }
 }
