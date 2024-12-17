@@ -8,6 +8,7 @@ import { Component, Input, Output,EventEmitter } from '@angular/core';
 export class BtnGroupComponent {
 
   @Input() btnList: string[] = [];
+  firstName: string  = "Rahul";
 
   @Output() onSelectBtn =  new EventEmitter<string>();
 

@@ -1,14 +1,35 @@
 <div class="row">
+    <div class="col-3">
+        <input type="text" #studName id="txtName">
+    </div>
+    <div class="col-3">
+        <input type="button" value="Read" 
+        (click)="getValue()">
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="row">
     <div class="col-5 p-3">
-        <app-btn-group (onSelectBtn)="onFruntSelect($event)" [btnList]="['Mango','Apple','Pear','Jamun']"></app-btn-group>
+        <app-btn-group 
+        (onSelectBtn)="onFruntSelect($event)"
+         [btnList]="['Mango','Apple','Pear','Jamun']">
+        </app-btn-group>
     </div>
 </div>
 <div class="row">
     <div class="col-4">
-        <app-alert [alertType]="'Danger'" [alertMessage]="'Welcome To Danger Alert'"></app-alert>
+        <app-alert [alertType]="'Danger'" 
+        [alertMessage]="'Welcome To Danger Alert'"></app-alert>
     </div>
     <div class="col-4" >
-        <app-alert [alertType]="'Success'" [alertMessage]="'This is Warning alert'"></app-alert>
+        <app-alert [alertType]="'Success'" 
+        [alertMessage]="'This is Warning alert'"></app-alert>
     </div>
     <div class="col-4">
         <app-progress-bar [progress]="70" [progressClassName]="'bg-success'"></app-progress-bar>

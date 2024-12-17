@@ -17,20 +17,36 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @for (item of carList; track $index) {
+                        @if (isLoader == true) {
                             <tr>
-                                <td>{{$index+1}} </td>
-                                <td> {{item.brand}}</td>
-                                <td> {{item.model}}</td>
-                                <td> {{item.year}}</td>
-                                <td> {{item.color}}</td> 
-                                <td>
-                                    <button class="btn btn-success" (click)="onEdit(item)">Edit</button>
-                                    <button class="btn btn-danger" (click)="onDelete(item)">Delete</button>
+                                <td colspan="6">
+                                    <div class="spinner-border text-muted"></div>
+                                    <div class="spinner-border text-primary"></div>
+                                    <div class="spinner-border text-success"></div>
+                                    <div class="spinner-border text-info"></div>
+                                    <div class="spinner-border text-warning"></div>
+                                    <div class="spinner-border text-danger"></div>
+                                    <div class="spinner-border text-secondary"></div>
+                                    <div class="spinner-border text-dark"></div>
+                                    <div class="spinner-border text-light"></div>
                                 </td>
-
                             </tr>
+                        } @else { 
+                            @for (item of carList; track $index) {
+                                <tr>
+                                    <td>{{$index+1}} </td>
+                                    <td> {{item.brand}}</td>
+                                    <td> {{item.model}}</td>
+                                    <td> {{item.year}}</td>
+                                    <td> {{item.color}}</td> 
+                                    <td>
+                                        <button class="btn btn-success" (click)="onEdit(item)">Edit</button>
+                                        <button class="btn btn-danger" (click)="onDelete(item)">Delete</button>
+                                    </td> 
+                                </tr>
+                            }
                         }
+                       
                     </tbody>
                 </table>
             </div>
@@ -79,7 +95,11 @@
  -{{carObject.carId}}
                             <button class="btn btn-sm btn-secondary m-1">Reset</button>
                             @if(carObject.carId ==0 ){
-                                <button class="btn btn-sm btn-success" (click)="onSave()">Save Car</button>
+                                <button class="btn btn-sm btn-success" (click)="onSave()">
+                                    @if (isApiCallInProgres) {
+                                        <span class="spinner-border spinner-border-sm"></span>
+                                    }
+                                    Save Car</button>
                             } @else { 
                                 <button class="btn btn-sm btn-warning" (click)="updateCar()">Update Car</button>
 

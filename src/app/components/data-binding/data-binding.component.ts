@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, viewChild } from '@angular/core';
+import { AlertComponent } from '../../shared/alert/alert.component';
+import { BtnGroupComponent } from '../../shared/btn-group/btn-group.component';
 
 @Component({
   selector: 'app-data-binding',
@@ -6,7 +8,12 @@ import { Component } from '@angular/core';
   styleUrl: './data-binding.component.css'
 })
 export class DataBindingComponent {
-  firstName: string = "Chetan";
+
+  @ViewChild ('studName') nameTextbox: ElementRef  | undefined;
+
+  @ViewChild(BtnGroupComponent) btnGroupCompo:BtnGroupComponent | undefined;
+
+  firstName: string = ""; 
   productPrice: number = 1200.56;
   currentDate: Date = new Date();
 
@@ -20,6 +27,23 @@ export class DataBindingComponent {
     name: '',
     city:'',
     address: ''
+  }
+
+  getValue() {
+    // const textRef  = document.getElementById("txtName")  as HTMLElement;
+    // if(textRef != null) {
+    //   const textName = textRef['value'];
+    // }
+    if(this.nameTextbox) {
+      const studNAme =  this.nameTextbox?.nativeElement.value;
+      this.nameTextbox.nativeElement.style.color ="red";
+    }
+    if(this.btnGroupCompo) {
+    const btnComp =  this.btnGroupCompo?.firstName;
+    this.btnGroupCompo.firstName = "Ankit"
+    }
+
+    debugger;
   }
 
   onFruntSelect(fruiitName: string) {
