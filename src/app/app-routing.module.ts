@@ -27,13 +27,13 @@ const routes: Routes = [
     component: NgForComponent
   },
   {
-    path: 'employeeList:/',
+    path: 'employeeList',
     component: EmployeeListComponent
   },
-  // {
-  //   path: 'createEmployee/:id',
-  //   component: CreateEmployeeComponent 
-  // },
+  {
+    path: 'createEmployee/:id',
+    component: CreateEmployeeComponent 
+  },
    {
     path: 'createEmployee',
     component: CreateEmployeeComponent 

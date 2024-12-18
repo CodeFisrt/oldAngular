@@ -53,9 +53,16 @@
                             </div>
                         </div>
                         <div class="col-6">
+                            <label for="">Is Email Required</label>
+                            <input type="checkbox"  formControlName="isEmailRequired" > 
+                            
+                        </div>
+                        <div class="col-6">
                             <label for="">emailId</label>
                             <input type="text" formControlName="emailId"  class="form-control">
+                            --{{userForm.controls['emailId'].errors}}
                             <div class="text-danger" *ngIf="userForm.controls['emailId'].touched">
+                                <span *ngIf="userForm.controls['emailId'].errors?.['required']">Required</span>  
                                 <span *ngIf="userForm.controls['emailId'].errors?.['email']">InValid Email</span>  
                               </div>
                         </div>

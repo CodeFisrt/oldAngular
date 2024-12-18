@@ -13,8 +13,9 @@ export class ReactiveUserComponent {
 
   userForm: FormGroup = new FormGroup({
     userId: new FormControl(0),
+    isEmailRequired: new FormControl(false),
     userName: new FormControl("",[Validators.required,Validators.minLength(5)]),
-    emailId: new FormControl("",[Validators.required,Validators.email]),
+    emailId: new FormControl("",[Validators.email]),
     fullName: new FormControl(""),
     role: new FormControl(""),
     createdDate: new FormControl(new Date()),
@@ -25,7 +26,18 @@ export class ReactiveUserComponent {
   })
 
   constructor(private http: HttpClient,private userSrv: UserService) {
-
+    this.userForm.controls['isEmailRequired'].valueChanges.subscribe((value: boolean)=>{
+      debugger;
+      if(value) {
+        this.userForm.controls['emailId'].addValidators(Validators.required);
+      } else {
+        this.userForm.controls['emailId'].removeValidators(Validators.required);
+      }
+      this.userForm.controls['emailId'].updateValueAndValidity();
+    })
+    this.userForm.controls['fullName'].valueChanges.subscribe((res:string)=>{
+      debugger;
+    })
   }
 
   getUsers2() {

@@ -1,5 +1,5 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -43,8 +43,14 @@ export class CreateEmployeeComponent implements OnInit ,AfterViewInit{
    
   }
 
-  onSaveEmployee () {
+  onSaveEmployee (form: NgForm) {
+    debugger;
+    if(form.invalid) {
+
+      debugger;
+    }  else {
+      debugger;
+    }
    
-    const formValue = this.employeeObj
   }
 }
